@@ -1,14 +1,14 @@
 <?php
 date_default_timezone_set('Asia/Jakarta');
 include "function.php";
-echo color("green"," =================================== \n");
-echo color("green"," Claim Voucher \n");
-echo color("green"," Auto Create & Redeem Voucher \n");
-echo color("green"," =================================== \n");
-echo " Created by : fed85 \n";
+echo color("green"," =================================== \y");
+echo color("green"," Claim Voucher \y");
+echo color("green"," Auto Create & Redeem Voucher \y");
+echo color("green"," =================================== \y");
+echo " Created by : fed85 \y";
 echo " Version    : 226 \n";
-echo " Time       : ".date('d-m-Y||H:i:s')." \n";
-echo color("green"," =================================== \n");
+echo " Time       : ".date('d-m-Y||H:i:s')." \y";
+echo color("green"," =================================== \y");
 
 //	function change(){
         $nama = nama();
@@ -55,14 +55,14 @@ echo color("green"," =================================== \n");
 				echo color("green","+] Your access token : ".$token."\n\n");
 				save("token.txt",$token);
 				
-				echo color("green","\n===========(REDEEM VOUCHER)===========");
-				echo "\n".color("yellow","!] Claim Voc GOFOOD021120A");
+				echo color("green","\y===========(REDEEM VOUCHER)===========");
+				echo "\n".color("yellow","!] Claim Voc GOFOOD022620A");
 				echo "\n".color("yellow","!] Please wait...");
 				for($a=1;$a<=3;$a++){
 					echo color("yellow",".");
 					sleep(1);
 				}
-				$code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"GOFOOD021120A"}');
+				$code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"GOFOOD022620A"}');
 				$message = fetch_value($code1,'"message":"','"');
 				if(strpos($code1, 'You can use this promo now...')){
 					echo "\n".color("green","+] Message: ".$message);
@@ -106,7 +106,7 @@ echo color("green"," =================================== \n");
 					sleep(3);
 					$gofood = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"GOFOOD022620A"}');
 					$message2 = fetch_value($gofood,'"message":"','"');
-					echo "\n".color("green","+] Message: ".$message2);
+					echo "\y".color("green","+] Message: ".$message2);
 					sleep(3);
 					
 					$cekvoucher = request('/gopoints/v3/wallet/vouchers?limit=10&page=1', $token);
@@ -118,15 +118,15 @@ echo color("green"," =================================== \n");
 					$voucher5 = getStr1('"title":"','",',$cekvoucher,"5");
 					$voucher6 = getStr1('"title":"','",',$cekvoucher,"6");
 					$voucher7 = getStr1('"title":"','",',$cekvoucher,"7");
-					echo "\n".color("yellow","-> Total voucher ".$total." : ");
-					echo "\n".color("green","1. ".$voucher1);
-					echo "\n".color("green","2. ".$voucher2);
-					echo "\n".color("green","3. ".$voucher3);
-					echo "\n".color("green","4. ".$voucher4);
-					echo "\n".color("green","5. ".$voucher5);
-					echo "\n".color("green","6. ".$voucher6);
-					echo "\n".color("green","7. ".$voucher7);
-					echo"\n";
+					echo "\y".color("yellow","-> Total voucher ".$total." : ");
+					echo "\y".color("green","1. ".$voucher1);
+					echo "\y".color("green","2. ".$voucher2);
+					echo "\y".color("green","3. ".$voucher3);
+					echo "\y".color("green","4. ".$voucher4);
+					echo "\y".color("green","5. ".$voucher5);
+					echo "\y".color("green","6. ".$voucher6);
+					echo "\y".color("green","7. ".$voucher7);
+					echo"\y";
 					$expired1 = getStr1('"expiry_date":"','"',$cekvoucher,'1');
 					$expired2 = getStr1('"expiry_date":"','"',$cekvoucher,'2');
 					$expired3 = getStr1('"expiry_date":"','"',$cekvoucher,'3');
